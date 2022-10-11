@@ -1,5 +1,5 @@
 module.exports = (app) => {
-    const notes = require('../controllers/pisc.controller.js');
+    const conspisc = require('../controllers/pisc.controller.js');
 
     // Create a new Note
     app.post('/ConsPisc', conspisc.create);
