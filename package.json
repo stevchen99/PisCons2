@@ -1,0 +1,19 @@
+{
+  "name": "piscons2",
+  "version": "1.0.0",
+  "description": "BackEnd Cons Pisc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevchen99/PisConsNode2.git"
+  },
+  "author": "Stev de DEV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevchen99/PisConsNode2/issues"
+  },
+  "homepage": "https://github.com/stevchen99/PisConsNode2#readme"
+}
