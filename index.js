@@ -27,18 +27,8 @@ mongoose.connect(uri, {
     process.exit();
 });
 
-const whitelist = ["https://piscons2.vercel.app"]
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error("Not allowed by CORS"))
-    }
-  },
-  credentials: true,
-}
-app.use(cors(corsOptions))
+
+app.use(cors())
 
 // define a simple route
 app.get('/', (req, res) => {
