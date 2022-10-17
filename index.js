@@ -1,7 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-require('dotenv').config();
+const cors = require("cors")
 const mongoose = require('mongoose');
+
+require('dotenv').config();
+
 
 // create express app
 const app = express();
@@ -23,6 +26,19 @@ mongoose.connect(uri, {
     console.log('Could not connect to the database. Exiting now...', err);
     process.exit();
 });
+
+const whitelist = ["https://piscons2.vercel.app"]
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
+  credentials: true,
+}
+app.use(cors(corsOptions))
 
 // define a simple route
 app.get('/', (req, res) => {
