@@ -41,6 +41,28 @@ exports.findAll = (req, res) => {
     });
 };
 
+exports.findCons = (req, res) => {
+    piscModel.find({isAdd : false})
+    .then(notes => {
+        res.send(notes);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving notes."
+        });
+    });
+};
+
+exports.findDebt = (req, res) => {
+    piscModel.find({isAdd : true})
+    .then(notes => {
+        res.send(notes);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving notes."
+        });
+    });
+};
+
 // Find a single note with a noteId
 exports.findOne = (req, res) => {
     piscModel.findById(req.params.PisConId)

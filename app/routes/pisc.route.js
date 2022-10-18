@@ -7,6 +7,10 @@ module.exports = (app) => {
     // Retrieve all Notes
     app.get('/ConsPisc', conspisc.findAll);
 
+    app.get('/ConsPiscCons', conspisc.findCons);
+
+    app.get('/ConsPiscDebt', conspisc.findDebt);
+
     // Retrieve a single Note with noteId
     app.get('/ConsPisc/:PisConId', conspisc.findOne);
 
