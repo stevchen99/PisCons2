@@ -52,6 +52,35 @@ exports.findCons = (req, res) => {
     });
 };
 
+exports.TotCons = (req, res) => {
+    piscModel.aggregate([
+        {$match : {isAdd : false}},
+        {$group : {_id:null, point : {$sum: "$point"}}}
+    ])
+    .then(notes => {
+        res.send(notes);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving notes."
+        });
+    });
+};
+
+exports.TotDebt = (req, res) => {
+    piscModel.aggregate([
+        {$match : {isAdd : true}},
+        {$group : {_id:null, point : {$sum: "$point"}}}
+    ])
+    .then(notes => {
+        res.send(notes);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving notes."
+        });
+    });
+};
+
+
 exports.findDebt = (req, res) => {
     piscModel.find({isAdd : true})
     .then(notes => {
